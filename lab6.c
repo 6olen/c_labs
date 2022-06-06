@@ -10,7 +10,7 @@ int main()
 int Elem;
 srand(time(NULL));
 
-printf("\nEnter the number of array elements: ");
+printf("\nEnter the number of array elements: \n");
 scanf("%d", &Elem);
 
 int arr[Elem];
@@ -21,7 +21,7 @@ arr[j] = rand() % 1000 - 500;
 }
 
 for (int i = 0; i < Elem; i++) {
-printf("\n%d", arr[i]);
+ printf("%d ", arr[i]);
 }
 
 // Каждый последующий элемент сложить
@@ -56,11 +56,20 @@ int Max = arr2[0];
 int Min_1 = arr[Elem-1];
 int Min_2 = arr[Elem-2];
 
-printf("\n\nThe largest sum of two consecutive array elements: %d\n", Max); // Наибольшая сумма двух последовательных элементов массива
-printf("The first minimum element in the array: %d\n", Min_1); // Минимальное значение массива
-printf("The second minimum element in the array: %d\n", Min_2); // Второе минимальное значение массива
+int Sum1 = Max + Min_2;
+int Sum2 = Max + Min_1;
+printf("\n");
 
-int Sum = Max + Min_1 + Min_2;
-printf("The sum of the received elements: %d\n\n", Sum);
+for (int i = 0; i < Elem; i++) {
+ if (Min_1 == arr[i]) {
+ arr[i] = Sum1;
+ }
+ if (Min_2 == arr[i]) {
+ arr[i] = Sum2;
+ }
+ printf("%d ", arr[i]);
+}
+
+ 
 
 }
